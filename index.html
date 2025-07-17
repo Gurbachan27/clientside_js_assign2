@@ -56,8 +56,31 @@
                     <span>Blueberry</span>
                 </div>
             </div>
+            <div class="form-group extras">
+                <label>Add Extras ($1.00 each):</label>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="protein">
+                    <img src="photos/protein.jpg" alt="Protein Powder">
+                    <span>Protein Powder</span>
+                </div>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="chia-seeds">
+                    <img src="photos/chiaSeeds.jpg" alt="Chia Seeds">
+                    <span>Chia Seeds</span>
+                </div>
+                <div class="extra-option">
+                    <input type="checkbox" name="extra" value="honey">
+                    <img src="photos/honey.jpg" alt="Honey">
+                    <span>Honey</span>
+                </div>
+            </div>
 
+            <button type="button" onclick="orderSmoothie()">Order Smoothie</button>
+        </form>
 
+        <div id="orderSummary"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
