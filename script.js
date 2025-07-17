@@ -17,4 +17,21 @@ class Smoothie {
         total += this.extras.length * this.extraPrice;
         return total;
     }
-}
+    getSummary() {
+            const fruitList = this.fruits.map(fruit => < li > $ { this.capitalize(fruit) }($$ { this.fruitPrice }) < /li>).join('');
+                const extraList = this.extras.map(extra => < li > $ { this.capitalize(extra) }($$ { this.extraPrice }) < /li>).join('');
+
+                    return `
+            <h3>Your Smoothie Order</h3>
+            <p>Size: ${this.capitalize(this.size)} ($${this.sizePrices[this.size]})</p>
+            <p>Base: ${this.capitalize(this.base.replace(/-/g, ' '))}</p>
+            <p>Fruits: <ul>${fruitList || '<li>No fruits selected</li>'}</ul></p>
+            <p>Extras: <ul>${extraList || '<li>No extras selected</li>'}</ul></p>
+            <p class="price">Total: $${this.calculateTotal().toFixed(2)}</p>
+        `;
+                }
+
+                capitalize(word) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                }
+            }
