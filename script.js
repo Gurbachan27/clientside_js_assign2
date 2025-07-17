@@ -17,6 +17,7 @@ class Smoothie {
         total += this.extras.length * this.extraPrice;
         return total;
     }
+
     getSummary() {
             const fruitList = this.fruits.map(fruit => < li > $ { this.capitalize(fruit) }($$ { this.fruitPrice }) < /li>).join('');
                 const extraList = this.extras.map(extra => < li > $ { this.capitalize(extra) }($$ { this.extraPrice }) < /li>).join('');
@@ -34,4 +35,19 @@ class Smoothie {
                 capitalize(word) {
                     return word.charAt(0).toUpperCase() + word.slice(1);
                 }
+            }
+
+            // Function to handle smoothie order creation
+            function orderSmoothie() {
+                // Gather values from form inputs
+                const size = document.getElementById('size').value;
+                const base = document.getElementById('base').value;
+                const selectedFruits = Array.from(document.querySelectorAll('input[name="fruit"]:checked')).map(checkbox => checkbox.value);
+                const selectedExtras = Array.from(document.querySelectorAll('input[name="extra"]:checked')).map(checkbox => checkbox.value);
+
+                // Create a new Smoothie instance
+                const smoothie = new Smoothie(size, base, selectedFruits, selectedExtras);
+
+                // Display the order summary in the HTML
+                document.getElementById('orderSummary').innerHTML = smoothie.getSummary();
             }
